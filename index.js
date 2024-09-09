@@ -1,6 +1,6 @@
 // TODO: add jsdoc
 
-export class json2yaml {
+export class js2yaml {
   constructor(indentation = 2) {
     this.indentation = indentation;
     this.yamlArray = new Array();
