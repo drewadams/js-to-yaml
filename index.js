@@ -1,4 +1,4 @@
-// TODO: add jsdoc
+// TODO: add jsdoc, add tests
 
 export class js2yaml {
   constructor(indentation = 2) {
