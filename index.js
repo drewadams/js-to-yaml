@@ -1,8 +1,8 @@
-// TODO: add jsdoc, add tests
+// TODO: add jsdoc
 
 export class js2yaml {
-  constructor(indentation = 2) {
-    this.indentation = indentation;
+  constructor() {
+    this.indentation = 2;
     this.yamlArray = new Array();
   }
 
@@ -28,9 +28,12 @@ export class js2yaml {
     }
     Object.entries(data).forEach(([key, value]) => {
       yamlArray.push(`${this.indent(level)}${key}: `);
+      if (key.startsWith("-")) {
+        level++;
+      }
       if (typeof value === "object" && value !== null) {
         yamlArray.push("\n");
-        buildYamlRecursive(value, level + 1, yamlArray);
+        this.#buildYamlRecursive(value, level + 1, yamlArray);
       } else {
         yamlArray.push(`${value}\n`);
       }
